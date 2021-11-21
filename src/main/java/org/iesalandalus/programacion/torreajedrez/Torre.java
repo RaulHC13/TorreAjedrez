@@ -2,37 +2,58 @@ package org.iesalandalus.programacion.torreajedrez;
 
 public class Torre {
 	
-	public Color color;
-	public Posicion posicion;
+	private Color color;
+	private Posicion posicion;
 	
 	public Torre() {
 		this.color=Color.NEGRO;
-		posicion = new Posicion(8,'h');
-		
-		
+		posicion = new Posicion(8,'h');	
 	}
-	public Color getColor() {
-		return color;
+	
+	public Torre(Color color) {
+		if(color == Color.BLANCO) {
+			this.color=Color.BLANCO;
+			posicion = new Posicion(1,'h');
+		}else {
+			this.color=Color.NEGRO;
+			posicion = new Posicion(8,'h');
+		}		
 	}
-	public void setColor(Color color) {
+	public Torre(Color color, char columna) {
+		if(columna != 'A' && columna != 'H' && columna != 'a' && columna !='h') {
+			throw new IllegalArgumentException("No es una columna valida");
+		}
+		if(color == Color.BLANCO) {
+			this.color=Color.BLANCO;
+			posicion = new Posicion(1,columna);
+		}else {
+			this.color=Color.NEGRO;
+			posicion = new Posicion(8,columna);
+		}		
+	}
+	@SuppressWarnings("unused")
+	private void setPosicion(Posicion posicion) {
+		
+		if(posicion == null) {
+			throw new NullPointerException("No se puede copiar una posicion nula.");
+		} this.posicion = posicion;
+	}
+	public Posicion getPosicion() {
+		return posicion;
+	}
+	@SuppressWarnings("unused")
+	private void setColor(Color color) {
 		
 		if(color == null) {
 			throw new NullPointerException("No se puede copiar un color nulo.");
 		}
 		if(color != Color.BLANCO && color != Color.NEGRO) {
 			throw new IllegalArgumentException ("No es un color valido");
-		} this.color = color;
-			
+		} this.color = color;	
 	}
 
-	public Posicion getPosicion() {
-		return posicion;
-	}
-	public void setPosicion(Posicion posicion) {
-		
-		if(posicion == null) {
-			throw new NullPointerException("No se puede copiar una posicion nula.");
-		} this.posicion = posicion;
+	public Color getColor() {
+		return color;
 	}
 	@Override
 	public String toString() {

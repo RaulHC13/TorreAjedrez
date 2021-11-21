@@ -16,8 +16,6 @@ public class Posicion {
 		}
 		setColumna(columna);
 	}
-	
-	
 	public Posicion(Posicion posicion) {
 		
 		if (posicion == null) {
@@ -27,7 +25,6 @@ public class Posicion {
 			this.columna = posicion.getColumna();
 		
 	}
-	
 	public int getFila() {
 		return fila;
 	}
@@ -37,7 +34,6 @@ public class Posicion {
 		}
 			this.fila = fila;
 			}
-	
 	public char getColumna() {
 		return columna;
 	}
@@ -47,8 +43,6 @@ public class Posicion {
 		}
 		this.columna = columna;
 	}
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,7 +51,6 @@ public class Posicion {
 		result = prime * result + fila;
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -74,10 +67,8 @@ public class Posicion {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return String.format("Posicion: Fila = %s Columna = %s", fila, columna);
 	}
-	
 }
