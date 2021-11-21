@@ -4,6 +4,8 @@ public class Torre {
 	
 	private Color color;
 	private Posicion posicion;
+	private Direccion direccion;
+	
 	
 	public Torre() {
 		this.color=Color.NEGRO;
@@ -13,10 +15,10 @@ public class Torre {
 	public Torre(Color color) {
 		if(color == Color.BLANCO) {
 			this.color=Color.BLANCO;
-			posicion = new Posicion(1,'h');
+			this.posicion = new Posicion(1,'h');
 		}else {
 			this.color=Color.NEGRO;
-			posicion = new Posicion(8,'h');
+			this.posicion = new Posicion(8,'h');
 		}		
 	}
 	public Torre(Color color, char columna) {
@@ -25,12 +27,25 @@ public class Torre {
 		}
 		if(color == Color.BLANCO) {
 			this.color=Color.BLANCO;
-			posicion = new Posicion(1,columna);
+			this.posicion = new Posicion(1,columna);
 		}else {
 			this.color=Color.NEGRO;
-			posicion = new Posicion(8,columna);
+			this.posicion = new Posicion(8,columna);
 		}		
 	}
+	
+	public void Mover(Direccion direccion, int numPasos) {
+		if (numPasos < 1) {
+			throw new IllegalArgumentException("No se pueden dar 0 o menos pasos.");
+		}
+		if(direccion == null) {
+			throw new NullPointerException("La direccion no puede ser nula");
+		}
+		
+		
+		
+	}
+	
 	@SuppressWarnings("unused")
 	private void setPosicion(Posicion posicion) {
 		
