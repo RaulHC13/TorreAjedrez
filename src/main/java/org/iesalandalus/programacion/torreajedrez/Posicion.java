@@ -18,7 +18,7 @@ public class Posicion {
 	}
 	private void setColumna(char columna) {
 		if((columna > 'H' && columna <='Z')||(columna > 'h' && columna <='z')) {
-			throw new IllegalArgumentException("No esta comprendido entre A y H");
+			throw new IllegalArgumentException("No esta comprendido entre A/a y H/h");
 		}
 		this.columna = columna;
 	}
