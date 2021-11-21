@@ -6,12 +6,15 @@ public class Torre {
 	public Posicion posicion;
 	
 	public Torre() {
+		this.color=Color.NEGRO;
+		posicion = new Posicion(8,'h');
+		
 		
 	}
 	public Color getColor() {
 		return color;
 	}
-	private void setColor(Color color) {
+	public void setColor(Color color) {
 		
 		if(color == null) {
 			throw new NullPointerException("No se puede copiar un color nulo.");
@@ -25,10 +28,14 @@ public class Torre {
 	public Posicion getPosicion() {
 		return posicion;
 	}
-	private void setPosicion(Posicion posicion) {
+	public void setPosicion(Posicion posicion) {
 		
 		if(posicion == null) {
 			throw new NullPointerException("No se puede copiar una posicion nula.");
 		} this.posicion = posicion;
+	}
+	@Override
+	public String toString() {
+		return String.format("Torre %s, %s", color, posicion);
 	}	
 }
