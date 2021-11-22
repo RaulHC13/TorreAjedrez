@@ -117,6 +117,6 @@ public class Torre {
 	}
 	@Override
 	public String toString() {
-		return String.format("Torre == Color: %s\n         Posicion: %s", color, posicion);
+		return String.format("Torre == Color: %s\n======== Posicion: %s", color, posicion);
 	}	
 }
