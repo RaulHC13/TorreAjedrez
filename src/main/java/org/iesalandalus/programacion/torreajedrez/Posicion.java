@@ -7,12 +7,12 @@ public class Posicion {
 	
 	public Posicion(int fila, char columna){
 		if (fila < 1 || fila > 8) {
-			throw new IllegalArgumentException("No es un atributo correcto");	
+			throw new IllegalArgumentException("ERROR: Fila no válida");	
 		}
 		setFila(fila);
 		
 		if((columna > 'H' && columna <='Z')||(columna > 'h' && columna <='z')) {
-			throw new IllegalArgumentException("No es un atributo correcto");
+			throw new IllegalArgumentException("ERROR: Columna no válida");
 		}
 		setColumna(columna);
 	}
@@ -69,6 +69,6 @@ public class Posicion {
 	}
 	@Override
 	public String toString() {
-		return String.format("Posicion: Fila = %s Columna = %s", fila, columna);
+		return String.format("Fila = " + fila + " Columna =  " + columna);
 	}
 }

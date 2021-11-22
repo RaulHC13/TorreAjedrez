@@ -1,8 +1,16 @@
 package org.iesalandalus.programacion.torreajedrez;
 
 public class MainApp {
+private static Torre miTorre=null;
 
 	public static void main(String[] args) {
-		System.out.println("kk");
+		 monstrarTorre();
+	}
+
+	private static void monstrarTorre() {
+		Torre miTorre = new Torre();
+		
+		System.out.println(miTorre);
+		
 	}
 }
