@@ -23,7 +23,7 @@ private static Torre towe;
 
 	private static void mostrarTorre() {
 		if(torreDefecto == null) {
-			System.out.println("No se ha creado una Torre");
+			System.out.println("Aun no se ha creado una Torre");
 		} else {
 			System.out.println(torreDefecto);
 		}
@@ -77,11 +77,7 @@ private static Torre towe;
 		
 		case 4:
 			
-			try {
-				torreDefecto=new Torre();
-			} catch(IllegalArgumentException | NullPointerException excepcion) {
-				System.out.println(excepcion.getMessage());
-			}
+			crearTorreDefecto();
 		break;
 		
 		case 5:
@@ -178,6 +174,14 @@ private static Torre towe;
 		 }
 		 return direccion;
 		 
+	 }
+	 
+	 private static void crearTorreDefecto(){
+		 try {
+				torreDefecto=new Torre();
+			} catch(IllegalArgumentException | NullPointerException excepcion) {
+				System.out.println(excepcion.getMessage());
+			}
 	 }
 	 
 	
