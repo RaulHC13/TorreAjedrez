@@ -16,7 +16,7 @@ public class Posicion {
 		}
 		setColumna(columna);
 	}
-	public Posicion(Posicion posicion) {
+	public Posicion(Posicion posicion) { //Constructor copia
 		
 		if (posicion == null) {
 			throw new NullPointerException("No se puede copiar una posición nula");
@@ -69,6 +69,6 @@ public class Posicion {
 	}
 	@Override
 	public String toString() {
-		return String.format("Fila = " + fila + " Columna =  " + columna);
+		return ("Fila = " + fila + " Columna =  " + columna);
 	}
 }

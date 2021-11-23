@@ -19,8 +19,8 @@ public class Torre {
 			posicion = new Posicion(8,'h');
 		}		
 	}
-	public Torre(Color color, char columna) {
-		if(columna != 'A' && columna != 'H' && columna != 'a' && columna !='h') {
+	public Torre(Color color, char columnaInicial) {
+		if(columnaInicial != 'A' && columnaInicial != 'H' && columnaInicial != 'a' && columnaInicial !='h') {
 			throw new IllegalArgumentException("No es una columna valida");
 		}
 		if(color == null) {
@@ -28,13 +28,12 @@ public class Torre {
 		}
 		if(color == Color.BLANCO) {
 			color=Color.BLANCO;
-			posicion = new Posicion(1,columna);
+			posicion = new Posicion(1,columnaInicial);
 		}else {
 			color=Color.NEGRO;
-			posicion = new Posicion(8,columna);
+			posicion = new Posicion(8,columnaInicial);
 		}		
 	}
-	@SuppressWarnings("unused")
 	private void setPosicion(Posicion posicion) {
 		if(posicion == null) {
 			throw new NullPointerException("No se puede copiar una posicion nula.");
@@ -62,17 +61,21 @@ public class Torre {
 		Torre torre2 = new Torre();
 		
 		if(direccion == null) {
-			throw new NullPointerException("No se puede copiar un color nulo.");
+			throw new NullPointerException("No se puede copiar una direccion nula.");
 		}
 		if(torre2.color==Color.BLANCO) {
 			if(direccion == Direccion.ENROQUE_CORTO) {
 				this.posicion= new Posicion(1,'f');
-			}this.posicion= new Posicion(1,'d');
+			} else if (direccion == Direccion.ENROQUE_LARGO) {
+				this.posicion= new Posicion(1,'d');
+			}
 			
 		}else if(torre2.color==Color.NEGRO) {
 			if(direccion == Direccion.ENROQUE_CORTO) {
 				this.posicion= new Posicion(8,'f');
-			}this.posicion= new Posicion(8,'d');
+			} else if (direccion == Direccion.ENROQUE_LARGO) {
+				this.posicion= new Posicion(8,'d');
+			}
 		}
 	}
 	

@@ -3,8 +3,8 @@ package org.iesalandalus.programacion.torreajedrez;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
-private static Torre miTorre=null;
-
+private static Torre torreDefecto;
+private static Torre towe;
 	public static void main(String[] args) {
 		int opcion;
 		
@@ -22,8 +22,11 @@ private static Torre miTorre=null;
 	}
 
 	private static void mostrarTorre() {
-		Torre miTorre = new Torre();
-		System.out.println(miTorre);
+		if(torreDefecto == null) {
+			System.out.println("No se ha creado una Torre");
+		} else {
+			System.out.println(torreDefecto);
+		}
 		}
 	private static void mostrarMenu() {
 		System.out.println("\n\n           Menu Inicial");
@@ -46,7 +49,7 @@ private static Torre miTorre=null;
 			
 		} while (opcion < 0 || opcion > 7 );
 		
-		System.out.println("La opcion elegida es: " + opcion);
+		System.out.println("La opcion elegida es: " + opcion + "\n");
 		
 		return opcion;	
 		
@@ -59,23 +62,26 @@ private static Torre miTorre=null;
 		case 1:
 			
 			elegirColor();
-			
 		break;
 		
 		case 2:
-			System.out.println("Case 2");
-			System.out.println("Entra un numero");
-			int asd = Entrada.entero();
 			
-			
+			elegirColumnaInicial();
 		break;
 		
 		case 3:
 			
+			mostrarMenuDirecciones();
+			elegirDireccion();	
 		break;
 		
 		case 4:
 			
+			try {
+				torreDefecto=new Torre();
+			} catch(IllegalArgumentException | NullPointerException excepcion) {
+				System.out.println(excepcion.getMessage());
+			}
 		break;
 		
 		case 5:
@@ -92,8 +98,93 @@ private static Torre miTorre=null;
 		}
 	}
 	
-	private Color elegirColor() {
+	private static Color elegirColor() {
+	    int codigoColor;
+	    Color color = Color.BLANCO;
 		
-	}
+		do { 
+			System.out.println("Selecion de color");
+			System.out.println("==================");
+			System.out.println("1. " + Color.BLANCO);
+			System.out.println("2. " + Color.NEGRO);
+			codigoColor = Entrada.entero();
+			
+		}while (codigoColor !=1 && codigoColor !=2);
+		
+		switch(codigoColor) {
+		
+		case 1:
+			color = Color.BLANCO;
+			System.out.println("El color seleccionado es: " + color);
+		break;
+			
+		case 2:
+			color = Color.NEGRO;
+			System.out.println("El color seleccionado es: " + color);
+		break;
+		
+		}
+		 return color;
+		}
 	
-	}
+	 private static char elegirColumnaInicial(){
+		 char columnaInicial;
+		 do {
+			 System.out.println("Introduce la columna inicial (a o h): ");
+			 columnaInicial = Entrada.caracter();
+			 
+		 }while(columnaInicial != 'A' && columnaInicial != 'H' && columnaInicial != 'a' && columnaInicial !='h');
+		 
+		 System.out.println("La columna inicial es: " + columnaInicial);
+		 return columnaInicial;
+	 }
+	 
+	 private static void mostrarMenuDirecciones() {
+		 
+			 
+		  		System.out.println("Menu direcciones");
+				System.out.println("==================");
+				System.out.println("1. " + Direccion.ABAJO);
+				System.out.println("2. " + Direccion.ARRIBA);
+				System.out.println("3. " + Direccion.IZQUIERDA);
+				System.out.println("4. " + Direccion.DERECHA);
+						
+		 }
+	 private static Direccion elegirDireccion() {
+		 Direccion direccion = Direccion.ABAJO;
+		 int codigoDireccion;
+		 
+		 do {
+			 System.out.println("\nSelecciona una opcion (1-4)");
+				codigoDireccion = Entrada.entero();
+		 } while(codigoDireccion < 1 || codigoDireccion > 4);
+		
+		 switch (codigoDireccion) {
+		 case 1:
+			 direccion = Direccion.ABAJO;
+			 System.out.println("La direccion elegida es: " + direccion);
+			 break;
+		 case 2:
+			 direccion = Direccion.ARRIBA;
+			 System.out.println("La direccion elegida es: " + direccion);
+			 break;
+		 case 3:
+			 direccion = Direccion.IZQUIERDA;
+			 System.out.println("La direccion elegida es: " + direccion);
+			 break;
+		 case 4:
+			 direccion = Direccion.DERECHA;
+			 System.out.println("La direccion elegida es: " + direccion);
+		 }
+		 return direccion;
+		 
+	 }
+	 
+	
+		 
+		 	
+		 
+	 }
+		
+	
+	
