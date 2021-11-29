@@ -215,6 +215,11 @@ private static Torre torreColorColumna;
 	 }
 	 
 	 private static void mover() {
+		 Direccion direccion;
+		 mostrarMenuDirecciones();
+		 direccion = elegirDireccion();
+		 System.out.println("Elige la cantidad de pasos a mover: ");
+		 int numPasos = Entrada.entero();
 		 
 		 
 	 }
