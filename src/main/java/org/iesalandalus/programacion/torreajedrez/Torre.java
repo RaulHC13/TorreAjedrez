@@ -11,6 +11,9 @@ public class Torre {
 		posicion = new Posicion(8,'h');	
 	}
 	public Torre(Color color) {
+		if(color == null) {
+			throw new NullPointerException("No se puede copiar un color nulo.");
+		}
 		if(color == Color.BLANCO) {
 			setColor(Color.BLANCO);
 			posicion = new Posicion(1,'h');
@@ -27,10 +30,10 @@ public class Torre {
 			throw new NullPointerException("No se puede copiar un color nulo.");
 		}
 		if(color == Color.BLANCO) {
-			color=Color.BLANCO;
+			setColor(Color.BLANCO);
 			posicion = new Posicion(1,columnaInicial);
 		}else {
-			color=Color.NEGRO;
+			setColor(Color.NEGRO);
 			posicion = new Posicion(8,columnaInicial);
 		}		
 	}

@@ -4,7 +4,8 @@ import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
 private static Torre torreDefecto;
-private static Torre towe;
+private static Torre torreColor;
+private static Torre torreColorColumna;
 	public static void main(String[] args) {
 		int opcion;
 		
@@ -22,10 +23,14 @@ private static Torre towe;
 	}
 
 	private static void mostrarTorre() {
-		if(torreDefecto == null) {
-			System.out.println("Aun no se ha creado una Torre");
-		} else {
-			System.out.println(torreDefecto);
+		if(torreDefecto != null) {
+			System.out.println("Torre defecto:\n" + torreDefecto);
+		}
+		if(torreColor != null) {
+			System.out.println("Torre color:\n" + torreColor);
+		}
+		if(torreColorColumna != null) {
+			System.out.println("Torre colorColumna:\n" + torreColorColumna);
 		}
 		}
 	private static void mostrarMenu() {
@@ -82,10 +87,12 @@ private static Torre towe;
 		
 		case 5:
 			
+			crearTorreColor();
 		break;
 		
 		case 6:
 			
+			crearTorreColorColumna();
 		break;
 		
 		case 7:
@@ -147,7 +154,7 @@ private static Torre towe;
 						
 		 }
 	 private static Direccion elegirDireccion() {
-		 Direccion direccion = Direccion.ABAJO;
+		 Direccion direccion = Direccion.ABAJO; //Se inicializa
 		 int codigoDireccion;
 		 
 		 do {
@@ -178,16 +185,32 @@ private static Torre towe;
 	 
 	 private static void crearTorreDefecto(){
 		 try {
-				torreDefecto=new Torre();
+				torreDefecto = new Torre();
 			} catch(IllegalArgumentException | NullPointerException excepcion) {
 				System.out.println(excepcion.getMessage());
 			}
 	 }
-	 
-	
+	 private static void crearTorreColor() {
+		 Color color; 
+		 color = elegirColor();
+		 try {
+				torreColor = new Torre(color);
+			} catch(IllegalArgumentException | NullPointerException excepcion) {
+				System.out.println(excepcion.getMessage());
+			}
+	 } 
+	 private static void crearTorreColorColumna() {
+		 Color color; 
+		 color = elegirColor();
 		 
-		 	
-		 
+		 char columnaInicial;
+		 columnaInicial = elegirColumnaInicial();
+		 try {
+				torreColorColumna = new Torre(color, columnaInicial);
+			} catch(IllegalArgumentException | NullPointerException excepcion) {
+				System.out.println(excepcion.getMessage());
+			}
+	 }	 
 	 }
 		
 	
