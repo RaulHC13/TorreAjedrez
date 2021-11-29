@@ -6,6 +6,7 @@ public class MainApp {
 private static Torre torreDefecto;
 private static Torre torreColor;
 private static Torre torreColorColumna;
+
 	public static void main(String[] args) {
 		int opcion;
 		
@@ -22,7 +23,7 @@ private static Torre torreColorColumna;
 		 
 	}
 
-	private static void mostrarTorre() {
+	private static void mostrarTorre() {//Puede mostrar hasta 3 Torres distintas
 		if(torreDefecto != null) {
 			System.out.println("Torre defecto:\n" + torreDefecto);
 		}
@@ -97,11 +98,12 @@ private static Torre torreColorColumna;
 		
 		case 7:
 			
+			mover();
 		break;
 		}
 	}
 	
-	private static Color elegirColor() {
+	private static Color elegirColor() {//Elige un color y lo devuelve
 	    int codigoColor;
 	    Color color = Color.BLANCO;
 		
@@ -130,7 +132,7 @@ private static Torre torreColorColumna;
 		 return color;
 		}
 	
-	 private static char elegirColumnaInicial(){
+	 private static char elegirColumnaInicial(){//Elige una columna inicial y la devuelve
 		 char columnaInicial;
 		 do {
 			 System.out.println("Introduce la columna inicial (a o h): ");
@@ -142,7 +144,7 @@ private static Torre torreColorColumna;
 		 return columnaInicial;
 	 }
 	 
-	 private static void mostrarMenuDirecciones() {
+	 private static void mostrarMenuDirecciones() {//Muestra las varias direcciones del enumerador
 		 
 			 
 		  		System.out.println("Menu direcciones");
@@ -183,14 +185,14 @@ private static Torre torreColorColumna;
 		 
 	 }
 	 
-	 private static void crearTorreDefecto(){
+	 private static void crearTorreDefecto(){//Crea la Torre por defecto
 		 try {
 				torreDefecto = new Torre();
 			} catch(IllegalArgumentException | NullPointerException excepcion) {
 				System.out.println(excepcion.getMessage());
 			}
 	 }
-	 private static void crearTorreColor() {
+	 private static void crearTorreColor() {//Crea la Torre a partir del color elegido
 		 Color color; 
 		 color = elegirColor();
 		 try {
@@ -199,7 +201,7 @@ private static Torre torreColorColumna;
 				System.out.println(excepcion.getMessage());
 			}
 	 } 
-	 private static void crearTorreColorColumna() {
+	 private static void crearTorreColorColumna() {//Crea la Torre a partir del color y la columna inicial
 		 Color color; 
 		 color = elegirColor();
 		 
@@ -210,7 +212,14 @@ private static Torre torreColorColumna;
 			} catch(IllegalArgumentException | NullPointerException excepcion) {
 				System.out.println(excepcion.getMessage());
 			}
-	 }	 
+	 }
+	 
+	 private static void mover() {
+		 
+		 
+	 }
+	 
+	 
 	 }
 		
 	

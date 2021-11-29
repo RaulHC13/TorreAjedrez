@@ -6,11 +6,11 @@ public class Torre {
 	private Posicion posicion;
 	private Direccion direccion;
 	
-	public Torre() {
+	public Torre() { //Constructor que crea la Torre por defecto con los parametros indicados
 		setColor(Color.NEGRO);
 		posicion = new Posicion(8,'h');	
 	}
-	public Torre(Color color) {
+	public Torre(Color color) {//Crea una Torre a partir de un color introducido
 		if(color == null) {
 			throw new NullPointerException("No se puede copiar un color nulo.");
 		}
@@ -22,7 +22,7 @@ public class Torre {
 			posicion = new Posicion(8,'h');
 		}		
 	}
-	public Torre(Color color, char columnaInicial) {
+	public Torre(Color color, char columnaInicial) { //Crea una Torre a partir de un color y una columna inicial
 		if(columnaInicial != 'A' && columnaInicial != 'H' && columnaInicial != 'a' && columnaInicial !='h') {
 			throw new IllegalArgumentException("No es una columna valida");
 		}
@@ -41,6 +41,7 @@ public class Torre {
 		if(posicion == null) {
 			throw new NullPointerException("No se puede copiar una posicion nula.");
 		} this.posicion = posicion;
+		
 	}
 	public Posicion getPosicion() {
 		return posicion;
